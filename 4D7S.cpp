@@ -32,3 +32,8 @@ void FourDSevenS ::_write_one_number(int set_number, int digit) {
     digitalWrite(_segments[number], _type == NEGATIVE ? !_numbers[set_number][number] : _numbers[set_number][number]);
   }
 }
+
+void FourDSevenS::write_number(int number, int digit) {
+  _write_one_number(number, digit);
+  delay(_time);
+}

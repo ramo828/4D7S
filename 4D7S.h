@@ -4,7 +4,19 @@
 class FourDSevenS {
 public:
   FourDSevenS(int segments[], int digits[], int type = 0);
+  enum {
+    DIGIT_1,
+    DIGIT_2,
+    DIGIT_3,
+    DIGIT_4,
+  };
+  enum {
+    NEGATIVE,
+    POSITIVE
+  };
   void write_numbers(String fnum);
+  void write_number(int number, int digit);
+
   void refresh(int time);
 private:
   int _numbers[10][7] = {
@@ -18,17 +30,6 @@ private:
     { 1, 1, 1, 0, 0, 0, 0 },  // 7
     { 1, 1, 1, 1, 1, 1, 1 },  // 8
     { 1, 1, 1, 1, 0, 1, 1 },  // 9
-  };
-
-  enum {
-    DIGIT_1,
-    DIGIT_2,
-    DIGIT_3,
-    DIGIT_4,
-  };
-  enum {
-    NEGATIVE,
-    POSITIVE
   };
 
   void _write_one_number(int set_number, int digit);

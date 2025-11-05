@@ -14,7 +14,7 @@
 
 int segments[] = { A, B, C, D, E, F, G };
 int digits[] = { DIGIT1, DIGIT2, DIGIT3, DIGIT4 };
-FourDSevenS disp = FourDSevenS(segments, digits);
+FourDSevenS disp = FourDSevenS(segments, digits, FourDSevenS::NEGATIVE);
 
 void setup() {
   disp.refresh(5);
