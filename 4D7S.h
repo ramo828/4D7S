@@ -7,6 +7,9 @@ class FourDSevenS {
 public:
   // Konstruktor: seqment və rəqəm pinlərini, həmçinin bağlantı tipini qəbul edir (default: POSITIVE)
   FourDSevenS(int segments[], int digits[], int type = 0);
+  ~FourDSevenS() {
+    delete _number_box;
+  }
 
   // Rəqəm mövqeləri üçün enum (istifadəçi üçün oxunaqlı adlar)
   enum {
@@ -47,8 +50,14 @@ public:
   void set_interval(long int interval);
 
 private:
-  // Nömrələri saxlamaq üçün qutu (maksimum 10000 ədəd)
+// Nömrələri saxlamaq üçün qutu (maksimum 10000 ədəd)
+#ifdef ARDUINO_ARCH_ESP32
   String _number_box[10000] = {};
+#else
+  String _number_box[100] = {};
+#endif
+
+
 
   // Qutudakı nömrələrin sayı (indeks)
   int _box_index = 0;
